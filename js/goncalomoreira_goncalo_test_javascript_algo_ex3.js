@@ -1,5 +1,5 @@
 function validateLine(){
-    validateMatrixAndBuildErrors(to_verify,'Line');
+    validateErrors(to_verify,'Line');
 }
 // function to validate all the columns
 function to_validateColumns(){
@@ -15,7 +15,7 @@ function to_validateColumns(){
     // get the html element by id (error) 
     let errorTable = document.getElementById('sudoku_errors');
 
-    validateMatrixAndBuildErrors(to_verify_columns,'Column');
+    validateErrors(to_verify_columns,'Column');
 }
 
 function to_validateRegion(x,y){
@@ -53,7 +53,7 @@ function to_validateRegions(){
     }
 }
 // function with purpose to check the erros on sudoku
-function validateMatrixAndBuildErrors(matrix,text){
+function validateErrors(matrix,text){
     let errorTable = document.getElementById('sudoku_errors');
     for(let i=0; i < matrix.length; i++){
         if (!checkAllConditions(matrix[i])){
