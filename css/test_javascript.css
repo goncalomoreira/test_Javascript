@@ -1,0 +1,21 @@
+table {
+    border: 3px solid;
+}
+
+td {
+    border: 1px solid;
+    min-width: 40px;
+    height: 40px;
+    text-align: center;
+}
+
+
+#sudoku_game {
+    margin-bottom: 70px;
+}
+
+p {
+    color: rgb(20, 246, 20);
+    font-size: 20px;
+    font-style: italic;
+}
