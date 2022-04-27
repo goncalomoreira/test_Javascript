@@ -13,7 +13,7 @@ function to_validateColumns(){
         }
     }
     // get the html element by id (error) 
-    let errorTable = document.getElementById('sudoku_errors');
+    let tableError = document.getElementById('sudoku_errors');
 
     validateErrors(to_verify_columns,'Column');
 }
@@ -22,7 +22,7 @@ function to_validateRegion(x,y){
     let to_verify_region = [];
     let xIndex = x*3;
     let yIndex = y*3;
-    let errorTable = document.getElementById('sudoku_errors');
+    let tableError = document.getElementById('sudoku_errors');
     
     for (let i = xIndex; i < xIndex + 3; i++){
         for (let j = yIndex; j < yIndex + 3; j++){
@@ -36,11 +36,11 @@ function to_validateRegion(x,y){
         td.innerHTML = `Region ${3*y + x + 1} incorrect`;
         tr.appendChild(td);
         for (let i=0; i < to_verify_region.length; i++){
-            let valueData = document.createElement('td');
-            valueData.innerHTML = to_verify_region[i];
-            tr.appendChild(valueData);
+            let dataValue = document.createElement('td');
+            dataValue.innerHTML = to_verify_region[i];
+            tr.appendChild(dataValue);
         }
-        errorTable.appendChild(tr);
+        tableError.appendChild(tr);
     }
 }
 
@@ -54,7 +54,7 @@ function to_validateRegions(){
 }
 // function with purpose to check the erros on sudoku
 function validateErrors(matrix,text){
-    let errorTable = document.getElementById('sudoku_errors');
+    let tableError = document.getElementById('sudoku_errors');
     for(let i=0; i < matrix.length; i++){
         if (!checkAllConditions(matrix[i])){
             let tr = document.createElement('tr');
@@ -66,14 +66,14 @@ function validateErrors(matrix,text){
                 dataValue.innerHTML = matrix[i][j];
                 tr.appendChild(dataValue);
             }
-            errorTable.appendChild(tr);
+            tableError.appendChild(tr);
         }         
     }
 }
 // function to check if the sudoku is correct if is correct return a message that says the sudoku is correct
 function checkSudokuSuccess(){
-    let errorTable = document.getElementById('sudoku_errors');
-    if(!errorTable.innerHTML){
+    let tableError = document.getElementById('sudoku_errors');
+    if(!tableError.innerHTML){
         let success = document.querySelector("p");
         success.innerHTML = 'The sudoku is correct';
     }
